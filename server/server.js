@@ -17,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/tasks', taskRoutes);
+app.use('/api/users', require('./routes/userRoutes'));
 
 // Error handler
 app.use(errorHandler);

@@ -16,15 +16,16 @@ const registerUser = async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role, 
       token: generateToken(user._id),
     });
+  
   } else {
     res.status(400).json({ message: 'Regjistrimi dështoi' });
   }
 };
 
-// @desc    Login user
-// @route   POST /api/auth/login
+
 const loginUser = async (req, res) => {
   const { email, password } = req.body;
 
@@ -34,8 +35,10 @@ const loginUser = async (req, res) => {
       _id: user.id,
       name: user.name,
       email: user.email,
+      role: user.role, 
       token: generateToken(user._id),
     });
+  
   } else {
     res.status(401).json({ message: 'Email ose fjalëkalim i gabuar' });
   }

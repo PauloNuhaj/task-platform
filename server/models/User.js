@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema({
     match: /^\S+@\S+\.\S+$/,
   },
   password: { type: String, required: true },
+  role: {
+    type: String,
+    enum: ['user', 'manager'],
+    default: 'user',
+  },
 }, { timestamps: true });
 
 // Hash password before save
