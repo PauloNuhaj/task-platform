@@ -1,8 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
-// @desc    Register new user
-// @route   POST /api/auth/register
+
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
   if (!name || !email || !password) return res.status(400).json({ message: 'Të gjitha fushat janë të detyrueshme' });
@@ -44,15 +43,14 @@ const loginUser = async (req, res) => {
   }
 };
 
-// @desc    Get current user
-// @route   GET /api/auth/me
-// @access  Private
+
+
 const getMe = async (req, res) => {
   const user = req.user;
   res.status(200).json(user);
 };
 
-// 🔐 Gjenerimi i token-it
+
 const generateToken = (id) => {
   return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
 };

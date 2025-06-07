@@ -1,6 +1,6 @@
 const User = require('../models/User');
 
-// @desc Merr listën e userave (vetëm për manager)
+
 const getUsers = async (req, res) => {
   try {
     if (req.user.role !== 'manager') {

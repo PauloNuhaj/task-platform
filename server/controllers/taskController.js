@@ -22,7 +22,7 @@ const createTask = async (req, res) => {
     if (!assignedTo || !dueDate) return res.status(400).json({ message: 'Duhet të caktoni punonjësin dhe datën' });
 
     const task = await Task.create({
-      user: req.user.id, // Kush e krijon taskin (manageri)
+      user: req.user.id, 
       title,
       description,
       assignedTo,
